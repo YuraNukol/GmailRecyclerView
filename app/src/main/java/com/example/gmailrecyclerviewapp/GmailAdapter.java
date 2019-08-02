@@ -28,20 +28,16 @@ public class GmailAdapter extends RecyclerView.Adapter<GmailAdapter.ViewHolder> 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        Context context = parent.getContext();
-        int layoutIdForListItem = R.layout.item_gmail_list;
 
-        LayoutInflater inflater = LayoutInflater.from(context);
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
 
-        View view = inflater.inflate(layoutIdForListItem,parent,false);
+        View view = inflater.inflate(R.layout.item_gmail_list,parent,false);
 
         ViewHolder viewHolder = new ViewHolder(view);
         viewHolder.tvZag1.setText("Steam Store");
         viewHolder.tvZag2.setText("Ви продали предмет на ринку...");
         viewHolder.tvText.setText("Шановний YuraNykol Sed12 купє пр...");
 
-        for (int i=0; i<10;i++)
-        viewHolder.tvTime.setText("1"+(i+2)+i+"0");
         return viewHolder;
     }
 
@@ -49,8 +45,6 @@ public class GmailAdapter extends RecyclerView.Adapter<GmailAdapter.ViewHolder> 
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         String renameTxtBtn = s.get(position);
         holder.tvTime.setText(renameTxtBtn);
-
-
         holder.img_star.setOnClickListener(view -> starAcivate(holder.img_star));
 
     }
@@ -62,24 +56,26 @@ public class GmailAdapter extends RecyclerView.Adapter<GmailAdapter.ViewHolder> 
 
     private void starAcivate(ImageView img) {
 
-
-        if(starAciv==false){
-            img.setImageResource(R.drawable.img_star_activate);
-            starAciv=true;
-        }
-        else {
+        if(starAciv){
             img.setImageResource(R.drawable.img_star);
             starAciv=false;
         }
-
+        else {
+            img.setImageResource(R.drawable.img_star_activate);
+            starAciv=true;
+        }
     }
 
 
 
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        private ImageView img_log, img_star;
-        private TextView tvZag1, tvZag2, tvText, tvTime;
+        private ImageView img_log;
+        private ImageView img_star;
+        private TextView tvZag1;
+        private TextView tvZag2;
+        private TextView tvText;
+        private TextView tvTime;
 
         public ViewHolder(View itemView) {
             super(itemView);
