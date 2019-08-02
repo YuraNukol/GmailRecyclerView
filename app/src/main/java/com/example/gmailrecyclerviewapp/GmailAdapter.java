@@ -80,7 +80,6 @@ public class GmailAdapter extends RecyclerView.Adapter<GmailAdapter.ViewHolder> 
     class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView img_log, img_star;
         private TextView tvZag1, tvZag2, tvText, tvTime;
-        private android.widget.RelativeLayout RelativeLayout;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -92,7 +91,6 @@ public class GmailAdapter extends RecyclerView.Adapter<GmailAdapter.ViewHolder> 
             tvText = itemView.findViewById(R.id.tvText);
             tvTime = itemView.findViewById(R.id.tvTime);
 
-            RelativeLayout = itemView.findViewById(R.id.rLayout);
         }
 
     }
