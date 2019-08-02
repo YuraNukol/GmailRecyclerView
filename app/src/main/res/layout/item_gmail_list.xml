@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+<RelativeLayout
+    android:id="@+id/rLayout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/img_star"
+        android:layout_width="wrap_content"
+        android:layout_height="29dp"
+        app:srcCompat="@drawable/img_star"
+        android:layout_marginTop="45dp"
+        android:layout_marginLeft="350dp"/>
+
+    <ImageView
+        android:id="@+id/img_log"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        app:srcCompat="@drawable/img_log" />
+
+    <TextView
+        android:id="@+id/tvZag1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextViewwwwwww"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="70dp"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="time"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="350dp"/>
+    <TextView
+        android:id="@+id/tvZag2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextViewwwwwwwwwwwwwwwwww..."
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="70dp"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:id="@+id/tvText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextViewwwwwwwwwwwwwwwww..."
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="70dp"/>
+
+
+
+</RelativeLayout>
+
+
+</LinearLayout>
