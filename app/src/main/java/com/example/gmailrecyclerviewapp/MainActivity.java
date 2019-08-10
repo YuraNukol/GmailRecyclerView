@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements Inter {
 
-    private ArrayList<String> arrayList = new ArrayList<>();
+    private ArrayList<ModelEmial> arrayList = new ArrayList<>();
     private RecyclerView rvList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,9 +19,12 @@ public class MainActivity extends AppCompatActivity implements Inter {
         setContentView(R.layout.activity_main);
 
         rvList=findViewById(R.id.rvList);
-        for(int i=0; i<10;i++)
-            arrayList.add("1"+i+":"+((i+2)/2)+"0");
-
+        for(int i=0; i<10;i++) {
+            ModelEmial modelEmial = new ModelEmial();
+            modelEmial.setEmail("1" + i + ":" + ((i + 2) / 2) + "0");
+            modelEmial.setRtefd("sadasd"+i);
+            arrayList.add(modelEmial);
+        }
         GmailAdapter adapter = new GmailAdapter(arrayList,this::call);
         rvList.setLayoutManager(new LinearLayoutManager(this));
         rvList.setAdapter(adapter);

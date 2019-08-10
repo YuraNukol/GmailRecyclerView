@@ -1,7 +1,5 @@
 package com.example.gmailrecyclerviewapp;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,10 +15,9 @@ import java.util.ArrayList;
 public class GmailAdapter extends RecyclerView.Adapter<GmailAdapter.ViewHolder> {
 
     private Inter inter;
-    private ArrayList<String> s;
-    private boolean starAciv =false;
+    private ArrayList<ModelEmial> s;
 
-    public GmailAdapter(ArrayList<String> s, Inter inter) {
+    public GmailAdapter(ArrayList<ModelEmial> s, Inter inter) {
         this.s = s;
         this.inter = inter;
     }
@@ -43,9 +40,12 @@ public class GmailAdapter extends RecyclerView.Adapter<GmailAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String renameTxtBtn = s.get(position);
-        holder.tvTime.setText(renameTxtBtn);
-        holder.img_star.setOnClickListener(view -> starAcivate(holder.img_star));
+        ModelEmial renameTxtBtn = s.get(position);
+        holder.tvTime.setText(renameTxtBtn.getEmail());
+        holder.tvZag1.setText(renameTxtBtn.getRtefd());
+        staracivate(renameTxtBtn,holder.img_star);
+        holder.img_star.setImageResource(renameTxtBtn.isSelected()?R.drawable.img_star_activate:R.drawable.img_star);
+        holder.img_star.setOnClickListener(view -> staracivate(renameTxtBtn,holder.img_star));
 
     }
 
@@ -54,17 +54,15 @@ public class GmailAdapter extends RecyclerView.Adapter<GmailAdapter.ViewHolder> 
         return s.size();
     }
 
-    private void starAcivate(ImageView img) {
-
-        if(starAciv){
+    private void staracivate(ModelEmial starAciv, ImageView img) {
+        if(starAciv.isSelected()){
             img.setImageResource(R.drawable.img_star);
-            starAciv=false;
+            starAciv.setSelected(false);
         }
         else {
             img.setImageResource(R.drawable.img_star_activate);
-            starAciv=true;
-        }
-    }
+            starAciv.setSelected(true);
+        }    }
 
 
 
